@@ -1,0 +1,27 @@
+.vCode[type='text']{
+    width: 60%;
+}
+.getCode.mui-btn-primary{
+    width: 35%;
+    height: 40px;
+    margin-left: 5%;
+}
+.register{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.mui-input-row:last-child{
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+}
+.mui-input-row:last-child input{
+    vertical-align: middle;
+}
+.mui-input-row:last-child a{
+    float: right;
+}
+.flag{
+    background: #999;
+    border-color: #999;
+}

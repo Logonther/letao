@@ -1,0 +1,17 @@
+.orderBar{
+    height: 30px;
+    line-height: 30px;
+    background: #eee;
+    box-shadow: 2px 0 2px #ccc;
+    margin: 10px auto;
+}
+.orderBar a{
+    float: left;
+    width: 25%;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+}
+.orderBar a.now{
+    color: darkorange;
+}

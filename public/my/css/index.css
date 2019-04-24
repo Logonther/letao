@@ -1,0 +1,92 @@
+/*内容的样式*/
+
+
+.wt_container .wt_content .wt_wrapper .nav,.wt_container .wt_content .wt_wrapper .brand{
+    margin: 10px 0;
+    padding: 0 10px;
+    overflow: hidden;
+}
+.wt_container .wt_content .wt_wrapper .nav a{
+    width: 33.33%;
+    float: left;
+}
+.wt_container .wt_content .wt_wrapper .nav a img{
+    width: 100%;
+    display: block;
+}
+.wt_container .wt_content .wt_wrapper .active{
+    padding: 0 10px;
+    font-size: 0;
+    overflow: hidden;
+}
+.wt_container .wt_content .wt_wrapper .active>a:nth-child(1),.wt_container .wt_content .wt_wrapper .active>a:nth-child(3){
+    width: 67.1%;
+    float: left;
+}
+.wt_container .wt_content .wt_wrapper .active>a:nth-child(2){
+    width: 32.9%;
+    float: right;
+}
+.wt_container .wt_content .wt_wrapper .active>a:nth-child(2) img{
+    width: 100%;
+    display: block;
+}
+.wt_container .wt_content .wt_wrapper .active>a:nth-child(1) img,.wt_container .wt_content .wt_wrapper .active>a:nth-child(3) img{
+    display: block;
+    float: left;
+    width: 50%;
+}
+.wt_container .wt_content .wt_wrapper .brand>img{
+    width: 100%;
+}
+.wt_container .wt_content .wt_wrapper .brand>a{
+    display: block;
+    width: 25%;
+    float: left;
+}
+.wt_container .wt_content .wt_wrapper .brand>a img{
+    display: block;
+    width: 100%;
+}
+.wt_container .wt_content .wt_wrapper .live{
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+.wt_container .wt_content .wt_wrapper .live>img{
+    width: 100%;
+}
+.wt_container .wt_content .wt_wrapper .live>a{
+    display: block;
+    width: 50%;
+    float: left;
+    padding: 0 5px;
+    margin-bottom: 10px;
+}
+.wt_container .wt_content .wt_wrapper .live>a>div{
+    width: 100%;
+    box-shadow: 0 0 5px #ccc;
+    padding: 10px;
+    text-align: center;
+}
+.wt_container .wt_content .wt_wrapper .live>a>div img{
+    width: 100%;
+}
+.wt_container .wt_content .wt_wrapper .live>a>div .name{
+    height: 36px;
+    line-height: 18px;
+    overflow: hidden;
+}
+.wt_container .wt_content .wt_wrapper .live>a>div .price{
+    font-size: 12px;
+    color: #f30;
+    margin-right: 10px;
+}
+.wt_container .wt_content .wt_wrapper .live>a>div .oldPrice{
+    font-size: 12px;
+    color: #ccc;
+    text-decoration: line-through;
+}
+.wt_container .wt_content .wt_wrapper .live>a>div button{
+    background: #006699;
+    color: white;
+}

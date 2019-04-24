@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ios是否创建快捷启动方式-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--ios顶部通栏的样式 黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--遇到数字禁止转化成电话号码的格式-->
+    <meta content="telephone=no" name="format-detection">
+    <title>传智云购-分类</title>
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="../res/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../res/fontAwesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/user/index.css"/>
+</head>
+<body>
+<div class="wt_container">
+    <!--头部-->
+    <header class="wt_header">
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <h3>商品详情</h3>
+    </header>
+    <!--内容-->
+    <div class="wt_content">
+        <div class="wt_wrapper">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell mui-media">
+                    <a class="mui-navigate-right" href="javascript:;">
+                        <img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/user.jpg">
+                        <div class="mui-media-body">
+                            加载中...<p>绑定手机:加载中...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="password.html" class="mui-navigate-right">账号与安全</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="cart.html" class="mui-navigate-right">我的购物车</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="address.html" class="mui-navigate-right">收货地址管理</a>
+                </li>
+            </ul>
+            <div class="loginOut">
+                <a href="javascript:;" class="mui-btn btn_outLogin">退出登录</a>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+    <footer class="wt_footer">
+        <a class="fa fa-home" href="../index.html"><p>首页</p></a>
+        <a class="fa fa-bars" href="../category.html"><p>分类</p></a>
+        <a class="fa fa-shopping-cart" href="../user/cart.html"><p>购物车</p></a>
+        <a class="fa fa-user now" href="../user/index.html"><p>会员中心</p></a>
+    </footer>
+</div>
+
+
+
+<script src="../res/mui/js/mui.min.js"></script>
+<script src="../res/artTemplate/template-native.js"></script>
+<script src="../res/zepto/zepto.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/user/index.js"></script>
+</body>
+</html>

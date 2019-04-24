@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ios是否创建快捷启动方式-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--ios顶部通栏的样式 黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--遇到数字禁止转化成电话号码的格式-->
+    <meta content="telephone=no" name="format-detection">
+    <title>传智云购-分类</title>
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="res/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/category.css"/>
+</head>
+<body>
+<div class="wt_container">
+    <!--头部-->
+    <header class="wt_header">
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <form action="#"><input type="text"></form>
+        <a href="search.html" class="fa fa-search"></a>
+    </header>
+    <!--内容-->
+    <div class="wt_content">
+        <div class="wt_wrapper">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!--一级分类-->
+                    <div class="cate_left">
+                        <ul>
+                            <!--TODO-->
+                        </ul>
+                    </div>
+                    <!--二级分类-->
+                    <div class="cate_right">
+                        <ul>
+                            <!--TODO-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--底部-->
+    <footer class="wt_footer">
+        <a class="fa fa-home" href="index.html"><p>首页</p></a>
+        <a class="fa fa-bars now" href="category.html"><p>分类</p></a>
+        <a class="fa fa-shopping-cart" href="user/cart.html"><p>购物车</p></a>
+        <a class="fa fa-user" href="user/index.html"><p>会员中心</p></a>
+    </footer>
+</div>
+
+<!--一级分类的模板-->
+<script type="text/template" id="firstTemplate">
+    <% for(var i = 0 ; i < rows.length ; i ++){ %>
+    <li class="<%=i==0?'now':''%>"><a href="#" data-id="<%=rows[i].id%>"><%=rows[i].categoryName%></a></li>
+    <% } %>
+</script>
+<!--二级分类的模板-->
+<script type="text/template" id="secondTemplate">
+    <% if(rows.length){ %>
+    <% for(var i = 0 ; i < rows.length ; i ++){ %>
+    <li><a href="#"><img src="<%=rows[i].brandLogo%>" alt=""><p><%=rows[i].brandName%></p></a></li>
+    <% } %>
+    <% }else{ %>
+    <p>此分类没有数据</p>
+    <% } %>
+</script>
+
+<script src="res/mui/js/mui.min.js"></script>
+<script src="res/artTemplate/template-native.js"></script>
+<script src="res/zepto/zepto.min.js"></script>
+<!--<script src="js/common.js"></script>-->
+<script src="js/category.js"></script>
+</body>
+</html>

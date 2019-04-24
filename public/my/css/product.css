@@ -1,0 +1,91 @@
+.product_footer{
+    width: 100%;
+    height: 50px;
+    background: #eeeeee;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    border-top: 1px solid #ccc;
+    padding-left: 50px;
+}
+.product_footer .toCart{
+    font-size: 20px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #333333;
+}
+.product_footer .add,.product_footer .buy{
+    display: block;
+    width: 48%;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    border-radius: 2px;
+    border: 0;
+}
+.product_footer .add{
+    background: #991020;
+    float: left;
+    margin-left: 1.3%;
+}
+.product_footer .buy{
+    background: #fa672d;
+    float: right;
+    margin-right: 1.3%;
+}
+.title{
+    padding: 10px;
+}
+.price,.size,.amount{
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #cccccc;
+}
+.price .nowPrice{
+    font-size: 21px;
+    font-weight: bold;
+    color: #ea543d;
+}
+.price .oldPrice{
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #aaaaaa;
+}
+.size span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+.size span.now{
+    background: #ea543d;
+}
+.amount{
+    line-height: 30px;
+}
+.amount input{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.amount .minus,.amount .plus{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+}

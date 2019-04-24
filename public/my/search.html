@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ios是否创建快捷启动方式-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--ios顶部通栏的样式 黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--遇到数字禁止转化成电话号码的格式-->
+    <meta content="telephone=no" name="format-detection">
+    <title>搜索</title>
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="res/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+</head>
+<body>
+<div class="wt_container">
+    <!--头部-->
+    <header class="wt_header">
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <h3>搜索中心</h3>
+    </header>
+    <!--内容-->
+    <div class="wt_content">
+        <div class="wt_wrapper">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!--搜索表单-->
+                    <div class="search">
+                        <form action="#">
+                            <input type="search" placeholder="搜索你喜欢的商品">
+                            <a href="#" class="search_btn">搜索</a>
+                        </form>
+                    </div>
+                    <!--历史记录-->
+                    <div class="history">
+
+                        <ul>
+                            <!--TODO-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+    <footer class="wt_footer">
+        <a class="fa fa-home" href="index.html"><p>首页</p></a>
+        <a class="fa fa-bars" href="category.html"><p>分类</p></a>
+        <a class="fa fa-shopping-cart" href="user/cart.html"><p>购物车</p></a>
+        <a class="fa fa-user" href="user/index.html"><p>会员中心</p></a>
+    </footer>
+</div>
+
+<script type="text/template" id="history">
+    <% if(list.length > 0){ %>
+    <div class="mui-clearfix">
+        <span class="mui-pull-left">搜索历史</span>
+        <span class="mui-pull-right fa fa-trash">清空记录</span>
+    </div>
+    <ul>
+        <% for(var i = list.length - 1; i >= 0 ;i--){ %>
+        <li>
+            <a href="#"><%=list[i]%></a>
+            <span class="fa fa-close" data-index="<%=i%>"></span>
+        </li>
+        <% } %>
+    </ul>
+    <% }else{ %>
+    <span>没有搜索历史记录</span>
+    <% } %>
+
+</script>
+
+<script src="res/mui/js/mui.min.js"></script>
+<script src="res/artTemplate/template-native.js"></script>
+<script src="res/zepto/zepto.min.js"></script>
+<!--<script src="js/common.js"></script>-->
+<script src="js/search.js"></script>
+</body>
+</html>
