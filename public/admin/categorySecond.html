@@ -2,11 +2,16 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>后台管理系统-一级分类</title>
+    <title>后台管理系统-二级分类-品牌</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/bootstrap-validator/css/bootstrapValidator.min.css"/>
     <link rel="stylesheet" href="assets/nprogress/nprogress.css"/>
     <link rel="stylesheet" href="css/admin.css"/>
+    <style>
+        select{
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 <aside>
@@ -22,7 +27,7 @@
                 <a href="#"><span class="glyphicon glyphicon-list"></span> 分类管理</a>
                 <div class="child">
                     <a href="categoryFirst.html">一级分类</a>
-                    <a href="categorySecond.html">二级分类-品牌</a>
+                    <a href="categorySecond.html">二级分类</a>
                 </div>
             </li>
             <li><a href="#"><span class="glyphicon glyphicon-tags"></span> 商品管理</a></li>
@@ -39,15 +44,15 @@
         <ol class="breadcrumb">
             <li><a href="#">管理系统</a></li>
             <li class="active">分类管理</li>
-            <li class="active">一级分类</li>
+            <li class="active">二级分类-品牌</li>
         </ol>
         <div class="ad_content">
-            <button class="btn btn-default" style="margin-bottom: 20px" id="add">添加分类</button>
+            <button class="btn btn-default" style="margin-bottom: 20px" id="add">添加品牌</button>
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
                     <th width="20%">序号</th>
-                    <th width="80%">分类名称</th>
+                    <th width="80%">品牌名称</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -69,7 +74,11 @@
             <div class="modal-body">
                 <form action="#" id="form">
                     <div class="form-group">
-                        <input name="categoryName" type="text" class="form-control" placeholder="请输入一级分类名称">
+                        <select class="form-control" name="categoryName">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input name="brandName" type="text" class="form-control" placeholder="请输入品牌名称">
                     </div>
                 </form>
             </div>
@@ -83,10 +92,7 @@
 
 <script type="text/template" id="template">
     <% for(var i = 0 ; i < rows.length ; i ++){ %>
-    <tr>
-        <td><%=(page-1)*size+i+1%></td>
-        <td><%=rows[i].categoryName%></td>
-    </tr>
+    <option value="<%=rows[i].categoryName%>"><%=rows[i].categoryName%></option>
     <% } %>
 </script>
 
@@ -97,6 +103,6 @@
 <script src="assets/nprogress/nprogress.js"></script>
 <script src="assets/artTemplate/template-native.js"></script>
 <script src="js/admin.js"></script>
-<script src="js/categoryFirst.js"></script>
+<script src="js/categorySecond.js"></script>
 </body>
 </html>
