@@ -35,6 +35,7 @@ $(function () {
         $('#addModal').modal('show');
     });
 
+
     $('#form').bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -59,7 +60,18 @@ $(function () {
         }
     }).on('success.form.bv', function(e) {
         e.preventDefault();
+        console.log($(e.target));
         console.log($(e.target).serialize());
+        /*渲染数据*/
+        $('tbody').append('<tr>' +
+            '<td>id</td>'+
+            '<td>'+$('[name=categoryName] option:selected').text()+'</td>'+
+            '<td>'+$('[name=brandName]').val()+'</td>'+
+            '<td><button class="btn btn-default delete">删除</button></td>'+
+            '</tr>');
+        $(e.target)[0].reset();
+        $(e.target).data('bootstrapValidator').resetForm();
+        $('#addModal').modal('hide');
         /*$.ajax({
             type:'post',
             url:'/category/addTopCategory',
@@ -76,7 +88,13 @@ $(function () {
                 }
             }
         });*/
+        $('button.delete').on('click',function () {
+            console.log(111);
+            $(this).parent().parent().remove();
+            /* todo */
+        })
     });
+
 })
 var getCategoryFirstData = function (params, callback) {
     $.ajax({

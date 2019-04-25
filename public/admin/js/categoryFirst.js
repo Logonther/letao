@@ -68,7 +68,17 @@ $(function () {
                 }
             }
         });
+        $('tbody').on('click','.delete',function () {
+            console.log(111);
+            $(this).parent().parent().remove();
+            /* todo */
+        })
     });
+    $('tbody').on('click','.delete',function () {
+        console.log(111);
+        $(this).parent().parent().remove();
+        /* todo */
+    })
 })
 var getCategoryFirstData = function (params, callback) {
     $.ajax({
