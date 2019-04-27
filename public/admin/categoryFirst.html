@@ -47,8 +47,8 @@
                 <thead>
                 <tr>
                     <th width="20%">序号</th>
-                    <th width="70%">分类名称</th>
-                    <th width="10%">操作</th>
+                    <th width="60%">分类名称</th>
+                    <th width="20%">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -85,9 +85,12 @@
 <script type="text/template" id="template">
     <% for(var i = 0 ; i < rows.length ; i ++){ %>
     <tr>
-        <td><%=(page-1)*size+i+1%></td>
-        <td><%=rows[i].categoryName%></td>
-        <td><button class="btn btn-default delete">删除</button></td>
+        <td class="id"><%=(page-1)*size+i+1%></td>
+        <td class="category"><%=rows[i].categoryName%></td>
+        <td class="operation">
+            <button class="btn btn-default modify">修改</button>
+            <button class="btn btn-default delete">删除</button>
+        </td>
     </tr>
     <% } %>
 </script>

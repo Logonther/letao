@@ -1,5 +1,6 @@
 $(function () {
     var currPage = 1;
+    var modifyID = 666
     var setPaginator = function(pageCurr,pageSum,callback){
         /*获取需要初始的元素 使用bootstrapPaginator方法*/
         $('.pagination').bootstrapPaginator({
@@ -52,32 +53,43 @@ $(function () {
         }
     }).on('success.form.bv', function(e) {
         e.preventDefault();
-        $.ajax({
-            type:'post',
-            url:'/category/addTopCategory',
-            data:$(e.target).serialize(),
-            dataType:'json',
-            success:function (data) {
-                if(data.success){
+        if ($('#addModal .modal-title').text() == '添加分类'){
+            $.ajax({
+                type:'post',
+                url:'/category/addTopCategory',
+                data:$(e.target).serialize(),
+                dataType:'json',
+                success:function (data) {
+                    if(data.success){
+                        $('#addModal').modal('hide');
+                        currPage = 1;
+                        render();
+                        /*重置表单*/
+                        $(e.target).data('bootstrapValidator').resetForm();
+                        $(e.target).find('input').val('');
+                    }
+                }
+            });
+        }else{
+            $('.id').each(function () {
+                if ($(this).text() == modifyID) {
                     $('#addModal').modal('hide');
-                    currPage = 1;
-                    render();
+                    $(this).next().text($('[name=categoryName]').val())
                     /*重置表单*/
                     $(e.target).data('bootstrapValidator').resetForm();
                     $(e.target).find('input').val('');
                 }
-            }
-        });
-        $('tbody').on('click','.delete',function () {
-            console.log(111);
-            $(this).parent().parent().remove();
-            /* todo */
-        })
+            })
+        }
     });
     $('tbody').on('click','.delete',function () {
-        console.log(111);
         $(this).parent().parent().remove();
         /* todo */
+    }).on('click','.modify',function () {
+        $('#addModal').modal('show');
+        $('.modal-title').text('修改分类');
+        modifyID = $(this).parent().prev().prev().text()
+        $('[name=categoryName]').val($(this).parent().prev().text())
     })
 })
 var getCategoryFirstData = function (params, callback) {
