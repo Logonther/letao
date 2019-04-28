@@ -1,6 +1,6 @@
 $(function () {
     var currPage = 1;
-    var modifyID = 666
+    var modifyID = 666;
     var setPaginator = function(pageCurr,pageSum,callback){
         /*获取需要初始的元素 使用bootstrapPaginator方法*/
         $('.pagination').bootstrapPaginator({
@@ -80,6 +80,7 @@ $(function () {
                     $(e.target).find('input').val('');
                 }
             })
+            $('#addModal .modal-title').text('添加分类');
         }
     });
     $('tbody').on('click','.delete',function () {
@@ -87,7 +88,7 @@ $(function () {
         /* todo */
     }).on('click','.modify',function () {
         $('#addModal').modal('show');
-        $('.modal-title').text('修改分类');
+        $('#addModal .modal-title').text('修改分类');
         modifyID = $(this).parent().prev().prev().text()
         $('[name=categoryName]').val($(this).parent().prev().text())
     })

@@ -1,5 +1,6 @@
 $(function () {
     var currPage = 1;
+    var modifyID = 666;
     /*var setPaginator = function(pageCurr,pageSum,callback){
         /!*获取需要初始的元素 使用bootstrapPaginator方法*!/
         $('.pagination').bootstrapPaginator({
@@ -79,23 +80,49 @@ $(function () {
         e.preventDefault();
         console.log($(e.target));
         console.log($(e.target).serialize());
-        /*渲染数据*/
-        $('tbody').append('<tr>' +
-            '<td>'+$('[name=userCode]').val()+'</td>'+
-            '<td>'+$('[name=userName]').val()+'</td>'+
-            '<td>'+$('[name=department]').val()+'</td>'+
-            '<td>'+$('[name=password]').val()+'</td>'+
-            '<td><button class="btn btn-default delete">删除</button></td>'+
-            '</tr>');
-        $(e.target)[0].reset();
-        $(e.target).data('bootstrapValidator').resetForm();
-        $('#addModal').modal('hide');
 
-        $('button.delete').on('click',function () {
+
+        if ($('#addModal .modal-title').text() == '添加用户'){
+            /*渲染数据*/
+            /*渲染数据*/
+            $('tbody').append('<tr>' +
+                '<td class="userCode">'+$('[name=userCode]').val()+'</td>'+
+                '<td class="userName">'+$('[name=userName]').val()+'</td>'+
+                '<td class="department">'+$('[name=department]').val()+'</td>'+
+                '<td>' +
+                '<button class="btn btn-default modify">修改</button>' +
+                '<button class="btn btn-default delete">删除</button>' +
+                '</td>'+
+                '</tr>');
+            $(e.target)[0].reset();
+            $(e.target).data('bootstrapValidator').resetForm();
+            $('#addModal').modal('hide');
+        }else{
+            $('.userCode').each(function () {
+                if ($(this).text() == modifyID) {
+                    $('#addModal').modal('hide');
+                    $(this).text($('[name=userCode]').val())
+                    $(this).next().text($('[name=userName]').val())
+                    $(this).next().next().text($('[name=department]').val())
+                    /*重置表单*/
+                    $(e.target).data('bootstrapValidator').resetForm();
+                    $(e.target).find('input').val('');
+                }
+            })
+            $('#addModal .modal-title').text('添加用户');
+        }
+        $('tbody').on('click','.delete',function () {
             console.log(111);
             $(this).parent().parent().remove();
             /* todo */
-        })
+        }).on('click','.modify',function () {
+            $('#addModal').modal('show');
+            $('#addModal .modal-title').text('修改用户');
+            modifyID = $(this).parent().prev().prev().prev().text()
+            $('[name=userCode]').val($(this).parent().prev().prev().prev().text())
+            $('[name=userName]').val($(this).parent().prev().prev().text())
+            $('[name=department]').val($(this).parent().prev().text())
+        });
     });
 
 })

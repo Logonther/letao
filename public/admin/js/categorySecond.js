@@ -1,5 +1,6 @@
 $(function () {
     var currPage = 1;
+    var modifyID = 666;
     var setPaginator = function(pageCurr,pageSum,callback){
         /*获取需要初始的元素 使用bootstrapPaginator方法*/
         $('.pagination').bootstrapPaginator({
@@ -62,36 +63,58 @@ $(function () {
         e.preventDefault();
         console.log($(e.target));
         console.log($(e.target).serialize());
-        /*渲染数据*/
-        $('tbody').append('<tr>' +
-            '<td>id</td>'+
-            '<td>'+$('[name=categoryName] option:selected').text()+'</td>'+
-            '<td>'+$('[name=brandName]').val()+'</td>'+
-            '<td><button class="btn btn-default delete">删除</button></td>'+
-            '</tr>');
-        $(e.target)[0].reset();
-        $(e.target).data('bootstrapValidator').resetForm();
-        $('#addModal').modal('hide');
-        /*$.ajax({
-            type:'post',
-            url:'/category/addTopCategory',
-            data:$(e.target).serialize(),
-            dataType:'json',
-            success:function (data) {
-                if(data.success){
+        if ($('#addModal .modal-title').text() == '添加品牌'){
+            /*$.ajax({
+                type:'post',
+                url:'/category/addTopCategory',
+                data:$(e.target).serialize(),
+                dataType:'json',
+                success:function (data) {
+                    if(data.success){
+                        $('#addModal').modal('hide');
+                        currPage = 1;
+                        render();
+                        /!*重置表单*!/
+                        $(e.target).data('bootstrapValidator').resetForm();
+                        $(e.target).find('input').val('');
+                    }
+                }
+            });*/
+            /*渲染数据*/
+            $('tbody').append('<tr>' +
+                '<td class="id">'+ Math.floor(Math.random()*11) +'</td>'+
+                '<td class="category">'+$('[name=categoryName] option:selected').text()+'</td>'+
+                '<td class="brandName">'+$('[name=brandName]').val()+'</td>'+
+                '<td class="operation">' +
+                '<button class="btn btn-default modify">修改</button>' +
+                '<button class="btn btn-default delete">删除</button>' +
+                '</td>'+
+                '</tr>');
+            $(e.target)[0].reset();
+            $(e.target).data('bootstrapValidator').resetForm();
+            $('#addModal').modal('hide');
+        }else{
+            $('.id').each(function () {
+                if ($(this).text() == modifyID) {
                     $('#addModal').modal('hide');
-                    currPage = 1;
-                    render();
-                    /!*重置表单*!/
+                    $(this).next().text($('[name=categoryName]').val())
+                    $(this).next().next().text($('[name=brandName]').val())
+                    /*重置表单*/
                     $(e.target).data('bootstrapValidator').resetForm();
                     $(e.target).find('input').val('');
                 }
-            }
-        });*/
-        $('button.delete').on('click',function () {
-            console.log(111);
+            })
+            $('#addModal .modal-title').text('添加品牌');
+        }
+        $('tbody').on('click','.delete',function () {
             $(this).parent().parent().remove();
             /* todo */
+        }).on('click','.modify',function () {
+            $('#addModal').modal('show');
+            $('#addModal .modal-title').text('修改品牌');
+            modifyID = $(this).parent().prev().prev().prev().text()
+            $('select').val($(this).parent().prev().prev().text())
+            $('[name=brandName]').val($(this).parent().prev().text())
         })
     });
 
