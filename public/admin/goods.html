@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/nprogress/nprogress.css"/>
     <link rel="stylesheet" href="css/admin.css"/>
+    <style>
+        .pic img,.detail img{
+            width: 72px;
+        }
+    </style>
 </head>
 <body>
 <aside>
@@ -40,13 +45,17 @@
             <li class="active">用户管理</li>
         </ol>
         <div class="ad_content">
-            <button class="btn btn-default" style="margin-bottom: 20px" id="add">添加用户</button>
+            <button class="btn btn-default" style="margin-bottom: 20px" id="add">添加商品</button>
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th width="20%">工号</th>
-                    <th width="30%">姓名</th>
-                    <th width="30%">部门</th>
+                    <th width="10%">id</th>
+                    <th width="10%">名称</th>
+                    <th width="10%">单价</th>
+                    <th width="20%">图片</th>
+                    <th width="10%">详情图</th>
+                    <th width="10%">品牌</th>
+                    <th width="10%">库存</th>
                     <th width="20%">操作</th>
                 </tr>
                 </thead>
@@ -60,25 +69,46 @@
     </div>
 </div>
 <div class="modal fade" id="addModal">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                <h4 class="modal-title">添加用户</h4>
+                <h4 class="modal-title">添加商品</h4>
             </div>
             <div class="modal-body">
                 <form action="#" id="form">
                     <div class="form-group">
-                        <input name="userCode" type="text" class="form-control" placeholder="请输入工号">
+                        <input name="name" type="text" class="form-control" placeholder="请输入名称">
                     </div>
                     <div class="form-group">
-                        <input name="userName" type="text" class="form-control" placeholder="请输入姓名">
+                        <input name="price" type="text" class="form-control" placeholder="请输入单价">
                     </div>
                     <div class="form-group">
-                        <input name="department" type="text" class="form-control" placeholder="请输入部门">
+                        <input name="src1" type="text" class="form-control" placeholder="请输入图片1路径">
                     </div>
                     <div class="form-group">
-                        <input name="password" type="password" class="form-control" placeholder="请输入密码">
+                        <input name="src2" type="text" class="form-control" placeholder="请输入图片2路径">
+                    </div>
+                    <div class="form-group">
+                        <input name="src3" type="text" class="form-control" placeholder="请输入图片3路径">
+                    </div>
+                    <div class="form-group">
+                        <input name="src4" type="text" class="form-control" placeholder="请输入图片4路径">
+                    </div>
+                    <div class="form-group">
+                        <input name="src5" type="text" class="form-control" placeholder="请输入图片5路径">
+                    </div>
+                    <div class="form-group">
+                        <input name="src6" type="text" class="form-control" placeholder="请输入图片6路径">
+                    </div>
+                    <div class="form-group">
+                        <input name="detail" type="text" class="form-control" placeholder="请输入详情图路径">
+                    </div>
+                    <div class="form-group">
+                        <input name="brand" type="text" class="form-control" placeholder="请输入品牌">
+                    </div>
+                    <div class="form-group">
+                        <input name="inventory" type="text" class="form-control" placeholder="请输入库存">
                     </div>
                 </form>
             </div>
@@ -97,6 +127,6 @@
 <script src="assets/nprogress/nprogress.js"></script>
 <script src="assets/artTemplate/template-native.js"></script>
 <script src="js/admin.js"></script>
-<script src="js/userManage.js"></script>
+<script src="js/goods.js"></script>
 </body>
 </html>
