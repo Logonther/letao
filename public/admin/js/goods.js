@@ -125,6 +125,9 @@ $(function () {
                 validators: {
                     notEmpty: {
                         message: '库存不能为空'
+                    },
+                    digits: {
+                        message: '库存只能包含数字'
                     }
                 }
             },
