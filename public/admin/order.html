@@ -7,8 +7,23 @@
     <link rel="stylesheet" href="assets/nprogress/nprogress.css"/>
     <link rel="stylesheet" href="css/admin.css"/>
     <style>
-        .pic img,.detail img{
+        .goods img{
             width: 72px;
+        }
+        .col-xs-3{
+            text-align: right;
+        }
+        .col-xs-9{
+            text-align: left;
+        }
+        .associate{
+            max-width: 315px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .closeorder{
+            margin-top: 12px;
         }
     </style>
 </head>
@@ -43,24 +58,52 @@
     <div class="container-fluid">
         <ol class="breadcrumb">
             <li><a href="#">管理系统</a></li>
-            <li class="active">商品管理</li>
+            <li class="active">订单管理</li>
         </ol>
         <div class="ad_content">
-            <button class="btn btn-default" style="margin-bottom: 20px" id="add">添加商品</button>
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th width="10%">id</th>
-                    <th width="10%">名称</th>
-                    <th width="10%">单价</th>
-                    <th width="20%">图片</th>
-                    <th width="10%">详情图</th>
-                    <th width="10%">品牌</th>
-                    <th width="10%">库存</th>
-                    <th width="20%">操作</th>
+                    <th width="10%">订单id</th>
+                    <th width="10%">提交用户</th>
+                    <th width="40%">收货信息</th>
+                    <th width="10%">订单状态</th>
+                    <th width="20%">商品</th>
+                    <th width="10%">操作</th>
                 </tr>
                 </thead>
                 <tbody>
+                <tr>
+                    <td class="id">2019012212345678</td>
+                    <td class="user">87654321</td>
+                    <td class="address">
+                        <div class="col-xs-3">收货人：</div>
+                        <div class="col-xs-9 name">某某某</div>
+                        <div class="col-xs-3">手机：</div>
+                        <div class="col-xs-9 phonenumber">13336666777</div>
+                        <div class="col-xs-3">邮编：</div>
+                        <div class="col-xs-9 postcode">430000</div>
+                        <div class="col-xs-3">所在地：</div>
+                        <div class="col-xs-9 division">
+                            <div class="col-xs-4 division1">湖北省</div>
+                            <div class="col-xs-4 division2">武汉市</div>
+                            <div class="col-xs-4 division3">武昌区</div>
+                        </div>
+                        <div class="col-xs-3">详细地址：</div>
+                        <div class="col-xs-9 associate">湖北省武汉市武昌区XXX科技园XXXX6栋222</div>
+                    </td>
+                    <td class="status">未审批</td>
+                    <td class="goods">
+                        <img src="images/detail.jpg">
+                        <img src="images/detail.jpg">
+                        <img src="images/detail.jpg">
+                        <img src="images/detail.jpg">
+                    </td>
+                    <td class="operation">
+                        <button class="btn btn-default modify">修改</button>
+                        <button class="btn btn-default closeorder">关闭</button>
+                    </td>
+                </tr>
                 </tbody>
             </table>
             <div class="pages" style="float: right">
@@ -74,42 +117,30 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                <h4 class="modal-title">添加商品</h4>
+                <h4 class="modal-title">修改订单</h4>
             </div>
             <div class="modal-body">
                 <form action="#" id="form">
                     <div class="form-group">
-                        <input name="name" type="text" class="form-control" placeholder="请输入名称">
+                        <input name="name" type="text" class="form-control" placeholder="请输入收货人">
                     </div>
                     <div class="form-group">
-                        <input name="price" type="text" class="form-control" placeholder="请输入单价">
+                        <input name="phonenumber" type="text" class="form-control" placeholder="请输入手机号">
                     </div>
                     <div class="form-group">
-                        <input name="src1" type="text" class="form-control" placeholder="请输入图片1路径">
+                        <input name="postcode" type="text" class="form-control" placeholder="请输入邮编">
                     </div>
                     <div class="form-group">
-                        <input name="src2" type="text" class="form-control" placeholder="请输入图片2路径">
+                        <input name="division1" type="text" class="form-control" placeholder="所在地-省">
                     </div>
                     <div class="form-group">
-                        <input name="src3" type="text" class="form-control" placeholder="请输入图片3路径">
+                        <input name="division2" type="text" class="form-control" placeholder="所在地-市">
                     </div>
                     <div class="form-group">
-                        <input name="src4" type="text" class="form-control" placeholder="请输入图片4路径">
+                        <input name="division3" type="text" class="form-control" placeholder="所在地-区">
                     </div>
                     <div class="form-group">
-                        <input name="src5" type="text" class="form-control" placeholder="请输入图片5路径">
-                    </div>
-                    <div class="form-group">
-                        <input name="src6" type="text" class="form-control" placeholder="请输入图片6路径">
-                    </div>
-                    <div class="form-group">
-                        <input name="detail" type="text" class="form-control" placeholder="请输入详情图路径">
-                    </div>
-                    <div class="form-group">
-                        <input name="brand" type="text" class="form-control" placeholder="请输入品牌">
-                    </div>
-                    <div class="form-group">
-                        <input name="inventory" type="text" class="form-control" placeholder="请输入库存">
+                        <input name="associate" type="text" class="form-control" placeholder="请输入详细地址">
                     </div>
                 </form>
             </div>
@@ -128,6 +159,6 @@
 <script src="assets/nprogress/nprogress.js"></script>
 <script src="assets/artTemplate/template-native.js"></script>
 <script src="js/admin.js"></script>
-<script src="js/goods.js"></script>
+<script src="js/order.js"></script>
 </body>
 </html>
